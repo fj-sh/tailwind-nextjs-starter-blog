@@ -1,3 +1,31 @@
+以下のエラーの原因を調査して、エラーを解消する方法と解消版の package.json を提示してください。
+
+```shell
+ ~/workspace/blogs/tailwind-nextjs-starter-blog [main] $ npm i
+npm error code ERESOLVE
+npm error ERESOLVE unable to resolve dependency tree
+npm error
+npm error While resolving: tailwind-nextjs-starter-blog@2.3.0
+npm error Found: react@19.0.0
+npm error node_modules/react
+npm error   react@"19.0.0" from the root project
+npm error
+npm error Could not resolve dependency:
+npm error peer react@"^16.8 || ^17 || ^18" from next-themes@0.3.0
+npm error node_modules/next-themes
+npm error   next-themes@"^0.3.0" from the root project
+npm error
+npm error Fix the upstream dependency conflict, or retry
+npm error this command with --force or --legacy-peer-deps
+npm error to accept an incorrect (and potentially broken) dependency resolution.
+npm error
+npm error
+npm error For a full report see:
+npm error /Users/zero/.npm/_logs/2025-03-01T15_33_38_346Z-eresolve-report.txt
+npm error A complete log of this run can be found in: /Users/zero/.npm/_logs/2025-03-01T15_33_38_346Z-debug-0.log
+```
+
+```json:package.json
 {
   "name": "tailwind-nextjs-starter-blog",
   "version": "2.3.0",
@@ -29,8 +57,8 @@
     "next-themes": "^0.3.0",
     "pliny": "0.4.1",
     "postcss": "^8.4.24",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
     "reading-time": "1.5.0",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-citation": "^2.0.0",
@@ -51,7 +79,7 @@
     "@eslint/js": "^9.16.0",
     "@svgr/webpack": "^8.0.1",
     "@types/mdx": "^2.0.12",
-    "@types/react": "^18.2.66",
+    "@types/react": "^19.0.8",
     "@typescript-eslint/eslint-plugin": "^8.12.0",
     "@typescript-eslint/parser": "^8.12.0",
     "cross-env": "^7.0.3",
@@ -67,10 +95,13 @@
     "typescript": "^5.1.3"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,json,css,md,mdx}": [
-      "prettier --write",
+    "*.+(js|jsx|ts|tsx)": [
       "eslint --fix"
+    ],
+    "*.+(js|jsx|ts|tsx|json|css|md|mdx)": [
+      "prettier --write"
     ]
   },
   "packageManager": "yarn@3.6.1"
 }
+```

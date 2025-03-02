@@ -1,5 +1,10 @@
 ![tailwind-nextjs-banner](/public/static/images/twitter-card.png)
 
+
+```shell
+curl -X POST "https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/95c0fde4-2217-4951-937e-5d77848140c4"
+```
+
 # Tailwind Nextjs Starter Blog
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/timlrx/tailwind-nextjs-starter-blog?style=social)](https://GitHub.com/timlrx/tailwind-nextjs-starter-blog/stargazers/)
